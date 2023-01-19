@@ -9,7 +9,7 @@ import tools.PropertyReader;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegisterPage {
+public class RegisterPage extends HeaderPage {
     private SelenideElement name = $(By.xpath("//label[text()='Имя']/following::input[@name='name']"));
     private SelenideElement email = $(By.xpath("//label[text()='Email']/following::input[@name='name']"));
     private SelenideElement password = $(By.xpath("//input[@name='Пароль']"));
@@ -18,21 +18,21 @@ public class RegisterPage {
     private SelenideElement logIn = $(By.xpath("//a[@href = '/login']"));
 
     @Step
-    public RegisterPage openRegisterPage(){
+    public RegisterPage openRegisterPage() {
         open(PropertyReader.getRegisterUrl());
 
         return this;
     }
 
     @Step
-    public LogInPage clickLogIn(){
+    public LogInPage clickLogIn() {
         logIn.shouldBe(Condition.visible).click();
 
         return new LogInPage();
     }
 
     @Step
-    public RegisterPage fillRegisterForm(String name, String email, String password){
+    public RegisterPage fillRegisterForm(String name, String email, String password) {
         this.name.sendKeys(name);
         this.email.sendKeys(email);
         this.password.sendKeys(password);
@@ -41,16 +41,15 @@ public class RegisterPage {
     }
 
     @Step
-    public LogInPage clickSignIn(){
+    public LogInPage clickSignIn() {
         signIn.click();
 
         return new LogInPage();
     }
 
     @Step
-    public void checkBadPasswordErrorVisible(){
+    public void checkBadPasswordErrorVisible() {
         error.shouldBe(Condition.visible);
         error.shouldHave(Condition.ownText("Некорректный пароль"));
     }
-
 }

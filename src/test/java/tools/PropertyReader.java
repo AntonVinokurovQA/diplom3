@@ -62,4 +62,8 @@ public class PropertyReader {
     public static String getPassword() {
         return getProperty("password");
     }
+
+    public static String getBrowser() {
+        return getProperty("browser");
+    }
 }

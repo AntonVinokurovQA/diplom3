@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import pageobject.LogInPage;
 import pageobject.RegisterPage;
 
-public class RegisterTest {
+public class RegisterTest extends BaseTest {
     private RegisterPage registerPage = new RegisterPage();
     private String name;
     private String email;

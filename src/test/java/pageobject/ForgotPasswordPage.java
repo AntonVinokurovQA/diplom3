@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class ForgotPasswordPage {
+public class ForgotPasswordPage extends HeaderPage{
     private SelenideElement logIn = $(By.xpath("//a[@href = '/login']"));
 
     @Step
